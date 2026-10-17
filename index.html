@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PromptLab AI turns a basic prompt into a clear, structured one using transparent templates." />
+  <title>PromptLab AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip" href="#prompt">Skip to prompt input</a>
+
+  <header class="top">
+    <div class="wrap bar">
+      <span class="logo">PromptLab<span class="dot">.</span>AI</span>
+      <span class="badge">v1 · template engine</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Turn a rough idea into a prompt that works.</h1>
+      <p class="lead">Type a basic prompt, pick a category, and PromptLab rewrites it with role, context, constraints and output format.</p>
+      <p class="note" id="about">
+        <strong>How it works:</strong> version 1 uses fixed, rule-based templates in your browser. It does not call a live AI model, and nothing you type leaves your device.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Your prompt</h2>
+
+        <label for="prompt">Basic prompt</label>
+        <textarea id="prompt" rows="5" maxlength="1500" placeholder="Example: make a to-do app" aria-describedby="count msg"></textarea>
+        <div class="row-meta"><span id="count">0 / 1500</span></div>
+
+        <div class="fields">
+          <div>
+            <label for="category">Category</label>
+            <select id="category">
+              <option value="coding">Coding</option>
+              <option value="image">Image Generation</option>
+              <option value="writing">Writing</option>
+              <option value="marketing">Marketing</option>
+              <option value="study">Study</option>
+            </select>
+          </div>
+          <div>
+            <label for="creativity">Creativity: <output id="creativityOut">Balanced</output></label>
+            <input type="range" id="creativity" min="1" max="3" value="2" />
+          </div>
+          <div>
+            <label for="detail">Detail level: <output id="detailOut">Standard</output></label>
+            <input type="range" id="detail" min="1" max="3" value="2" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="enhance" class="btn primary">Enhance prompt</button>
+          <button type="button" id="clear" class="btn">Clear</button>
+        </div>
+
+        <p id="msg" class="msg" role="alert" aria-live="assertive"></p>
+
+        <h3>Try an example</h3>
+        <div class="examples" id="examples"></div>
+      </div>
+
+      <div class="panel">
+        <div class="out-head">
+          <h2>Enhanced prompt</h2>
+          <button type="button" id="copy" class="btn" disabled>Copy</button>
+        </div>
+        <pre id="output" class="output" tabindex="0" aria-live="polite">Your improved prompt will appear here.</pre>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>PromptLab AI · Static site built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
